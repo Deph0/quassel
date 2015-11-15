@@ -52,6 +52,15 @@ ContextMenuActionProvider::ContextMenuActionProvider(QObject *parent) : NetworkM
     registerAction(HideMode, tr("Mode Changes"), true);
     registerAction(HideDayChange, tr("Day Changes"), true);
     registerAction(HideTopic, tr("Topic Changes"), true);
+
+    // HideKick, HideNotice, HideAction, HideInvite, HideNetSplit
+    registerAction(HideKick, tr("Kicks"), true);
+    registerAction(HideNotice, tr("Notices"), true);
+    registerAction(HideAction, tr("Actions"), true);
+    registerAction(HideInvite, tr("Invites"), true);
+    registerAction(HideNetSplit, tr("Netsplits"), true);
+    // what does plain/kill/server/info/error?
+
     registerAction(HideApplyToAll, tr("Set as Default..."));
     registerAction(HideUseDefaults, tr("Use Defaults..."));
 
@@ -101,6 +110,14 @@ ContextMenuActionProvider::ContextMenuActionProvider(QObject *parent) : NetworkM
     hideEventsMenu->addAction(action(HideNick));
     hideEventsMenu->addAction(action(HideMode));
     hideEventsMenu->addAction(action(HideTopic));
+
+    hideEventsMenu->addAction(action(HideKick));
+    hideEventsMenu->addAction(action(HideNotice));
+    hideEventsMenu->addAction(action(HideAction));
+    hideEventsMenu->addAction(action(HideInvite));
+    hideEventsMenu->addAction(action(HideNetSplit));
+    // HideKick, HideNotice, HideAction, HideInvite, HideNetSplit
+
     hideEventsMenu->addAction(action(HideDayChange));
     hideEventsMenu->addSeparator();
     hideEventsMenu->addAction(action(HideApplyToAll));
@@ -441,6 +458,14 @@ void ContextMenuActionProvider::addHideEventsMenu(QMenu *menu, int filter)
     action(HideQuit)->setChecked(filter & Message::Quit);
     action(HideNick)->setChecked(filter & Message::Nick);
     action(HideMode)->setChecked(filter & Message::Mode);
+
+    action(HideKick)->setChecked(filter & Message::Kick);
+    action(HideNotice)->setChecked(filter & Message::Notice);
+    action(HideAction)->setChecked(filter & Message::Action);
+    action(HideInvite)->setChecked(filter & Message::Invite);
+    action(HideNetSplit)->setChecked(filter & Message::NetsplitQuit);
+    // HideKick, HideNotice, HideAction, HideInvite, HideNetSplit
+
     action(HideDayChange)->setChecked(filter & Message::DayChange);
     action(HideTopic)->setChecked(filter & Message::Topic);
 

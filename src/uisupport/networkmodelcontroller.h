@@ -62,6 +62,14 @@ public:
         HideQuit = 0x0300,
         HideNick = 0x0400,
         HideMode = 0x0500,
+
+        HideKick = 0x0f0000000,
+        HideNotice = 0x010000000,
+        HideAction = 0x020000000,
+        HideInvite = 0x030000000,
+        HideNetSplit = 0x040000000,
+        // HideKick, HideNotice, HideAction, HideInvite, HideNetSplit
+
         HideDayChange = 0x0600,
         HideTopic = 0x0700,
         HideJoinPartQuit = 0xd00,

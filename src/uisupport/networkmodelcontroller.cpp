@@ -322,11 +322,11 @@ void NetworkModelController::handleHideAction(ActionType type, QAction *action)
 
     int filter = 0;
     if (NetworkModelController::action(HideJoin)->isChecked())
-        filter |= Message::Join | Message::NetsplitJoin;
+        filter |= Message::Join;
     if (NetworkModelController::action(HidePart)->isChecked())
         filter |= Message::Part;
     if (NetworkModelController::action(HideQuit)->isChecked())
-        filter |= Message::Quit | Message::NetsplitQuit;
+        filter |= Message::Quit;
     if (NetworkModelController::action(HideNick)->isChecked())
         filter |= Message::Nick;
     if (NetworkModelController::action(HideMode)->isChecked())
@@ -336,6 +336,18 @@ void NetworkModelController::handleHideAction(ActionType type, QAction *action)
     if (NetworkModelController::action(HideTopic)->isChecked())
         filter |= Message::Topic;
 
+    // HideKick, HideNotice, HideAction, HideInvite, HideNetSplit
+    if (NetworkModelController::action(HideKick)->isChecked())
+        filter |= Message::Kick;
+    if (NetworkModelController::action(HideNotice)->isChecked())
+        filter |= Message::Notice;
+    if (NetworkModelController::action(HideAction)->isChecked())
+        filter |= Message::Action;
+    if (NetworkModelController::action(HideInvite)->isChecked())
+        filter |= Message::Invite;
+    if (NetworkModelController::action(HideNetSplit)->isChecked())
+        filter |= Message::NetsplitJoin | Message::NetsplitQuit;
+
     switch (type) {
     case HideJoinPartQuit:
     case HideJoin:
@@ -343,6 +355,7 @@ void NetworkModelController::handleHideAction(ActionType type, QAction *action)
     case HideQuit:
     case HideNick:
     case HideMode:
+    case HideKick: case HideNotice: case HideAction: case HideInvite: case HideNetSplit:
     case HideDayChange:
     case HideTopic:
         if (_messageFilter)
