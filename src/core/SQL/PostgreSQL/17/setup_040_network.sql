@@ -1,4 +1,4 @@
-CREATE TABLE network (
+CREATE TABLE IF NOT EXISTS network (
        networkid serial NOT NULL PRIMARY KEY,
        userid integer NOT NULL REFERENCES quasseluser (userid) ON DELETE CASCADE,
        networkname varchar(32) NOT NULL,

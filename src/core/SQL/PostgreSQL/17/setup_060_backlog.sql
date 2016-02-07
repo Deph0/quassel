@@ -1,4 +1,4 @@
-CREATE TABLE backlog (
+CREATE TABLE IF NOT EXISTS backlog (
 	messageid serial PRIMARY KEY,
 	time timestamp NOT NULL,
 	bufferid integer NOT NULL REFERENCES buffer (bufferid) ON DELETE CASCADE,

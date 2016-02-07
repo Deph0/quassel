@@ -1,4 +1,4 @@
-CREATE TABLE identity (
+CREATE TABLE IF NOT EXISTS identity (
        identityid serial PRIMARY KEY,
        userid integer NOT NULL REFERENCES quasseluser (userid) ON DELETE CASCADE,
        identityname varchar(64) NOT NULL,

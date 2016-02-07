@@ -1,4 +1,4 @@
-CREATE TABLE ircserver (
+CREATE TABLE IF NOT EXISTS ircserver (
     serverid serial PRIMARY KEY,
     userid integer NOT NULL REFERENCES quasseluser (userid) ON DELETE CASCADE,
     networkid integer NOT NULL REFERENCES network (networkid) ON DELETE CASCADE,

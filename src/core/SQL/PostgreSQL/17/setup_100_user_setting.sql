@@ -1,4 +1,4 @@
-CREATE TABLE user_setting (
+CREATE TABLE IF NOT EXISTS user_setting (
     userid integer NOT NULL REFERENCES quasseluser (userid) ON DELETE CASCADE,
     settingname TEXT NOT NULL,
     settingvalue bytea,

@@ -1,4 +1,4 @@
-create TABLE buffer (
+create TABLE IF NOT EXISTS buffer (
 	bufferid serial PRIMARY KEY,
 	userid integer NOT NULL REFERENCES quasseluser (userid) ON DELETE CASCADE,
 	groupid integer,
